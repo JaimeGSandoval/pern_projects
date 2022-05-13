@@ -1,14 +1,16 @@
 require('dotenv/config');
 const express = require('express');
 const cors = require('cors');
-const pool = require('./db');
 
 const app = express();
+
+// middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => res.json('Bankai'));
+/// register and login routes
+app.use('/auth', require('./routes/jwtAuth'));
 
 const port = process.env.PORT;
 app.listen(port, () => console.log(`I'm listening on port ${port}...`));
