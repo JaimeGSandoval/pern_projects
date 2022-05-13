@@ -12,5 +12,8 @@ app.use(express.urlencoded({ extended: false }));
 /// register and login routes
 app.use('/auth', require('./routes/jwtAuth'));
 
+// dashboard route
+app.use('/dashboard', require('./routes/dashboard'));
+
 const port = process.env.PORT;
 app.listen(port, () => console.log(`I'm listening on port ${port}...`));

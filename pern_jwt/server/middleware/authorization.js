@@ -21,7 +21,7 @@ module.exports = async (req, res, next) => {
       });
     }
 
-    req.user = payload.user; // get user from jwt encryption
+    req.user = payload.user; // user_id we get from jwt encryption. We now have access to using that user_id within our application as req.user
 
     next();
   } catch (error) {
