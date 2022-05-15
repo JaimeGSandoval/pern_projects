@@ -107,7 +107,7 @@ router.get('/is-verify', authorization, (req, res) => {
   try {
     res.json(true);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res.status(500).send('Not authorized');
   }
 });
